@@ -15,7 +15,7 @@ Important notes:
 
 Usage:
 
-* Download stereo pairs from http://vision.middlebury.edu/stereo/data/ for training and test
+* Download stereo pairs from http://vision.middlebury.edu/stereo/data/ for training and test and change the data paths if necessary
 
 * Dictionary Learning in the folder "training"
  - folders "all15","first8","last7" are used to save the corresponding training samples and learned dictionaries.
