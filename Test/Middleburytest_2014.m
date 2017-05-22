@@ -12,8 +12,8 @@ if (UseParallelToolbox)
 end
 
 % Are you going to use the training or test set?
-  imgset = 'training';
-% imgset = 'test';
+%   imgset = 'training';
+imgset = 'test';
 
 % Specify which resolution you are using for the stereo image set (F, H, or Q?)
   imgsize = 'Q';
@@ -86,7 +86,8 @@ P1=1.2;
 sigma=0.4;
 ErrorRate = zeros(1,15);
 %--------------------------------- Executing ------------------------------%
-for im_num = test_start: test_end
+% for im_num = test_start: test_end   % if all the datasets are downloaded.
+for im_num =2:2
     %----------- Adjust the range of disparities to the chosen resolution -------------------------------%
     if imgsize == 'Q'
         DisparityRange = [1,round(ndisp(im_num)/4)];
@@ -98,8 +99,8 @@ for im_num = test_start: test_end
     
     tic
     %------------------------------- input color images  ---------------------------------------------%
-    I1= imread(['../Middlebury 2014/MiddEval3/',imgset,imgsize,'/',image_names{im_num},'/im0.png']);
-    I2= imread(['../Middlebury 2014/MiddEval3/',imgset,imgsize,'/',image_names{im_num},'/im1.png']);
+    I1= imread(['../MiddEval3/',imgset,imgsize,'/',image_names{im_num},'/im0.png']);
+    I2= imread(['../MiddEval3/',imgset,imgsize,'/',image_names{im_num},'/im1.png']);
     
     %-------------------------------------- data preparation -------------------------%
     [Data0_0,Data1_0,Data0_1,Data1_1]=DataPreparing(I1,I2,b);
@@ -145,13 +146,13 @@ for im_num = test_start: test_end
     
     %-------------------------------If possible, compute the error rate------------------------------%
     if strcmp(imgset,'training')
-        GT = readpfm(['../Middlebury 2014/MiddEval3GT/training',imgsize,'/',image_names{im_num},'/disp0GT.pfm']);
-        mask = imread(['../Middlebury 2014/MiddEval3GT/training',imgsize,'/',image_names{im_num},'/mask0nocc.png']);
+        GT = readpfm(['../MiddEval3GT/training',imgsize,'/',image_names{im_num},'/disp0GT.pfm']);
+        mask = imread(['../MiddEval3GT/training',imgsize,'/',image_names{im_num},'/mask0nocc.png']);
         mask = mask == 255;
         Error = abs(final_labels- GT) > 1;
         Error(~mask) = 0;
         ErrorRate(im_num) = sum(Error(:))/sum(mask(:));
-        fprintf('%s = %f\n', image_names{im_num}, ErrorRate(im_num));
+%         fprintf('%s = %f\n', image_names{im_num}, ErrorRate(im_num));
     end
     
     %--------------------------.png format-------------------------------------------%

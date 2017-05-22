@@ -3,7 +3,7 @@ clc
 clear
 close all
 b=5;
-filenames=dir('../Middlebury 2014/MiddEval3GT/trainingQ/');
+filenames=dir('../MiddEval3GT/trainingQ/');
 filenames(1:2)=[];
 Left=[];
 Right=[];
@@ -12,11 +12,11 @@ Right_ng=[];
 for im=1:15   %or 1:8, change the save path to first8\ or 9:15,  change the save path to last7\
 %% left view
 names=filenames(im).name;
-I=imread(strcat('../Middlebury 2014/MiddEval3/trainingQ/',names,'/im0.png'));
+I=imread(strcat('../MiddEval3/trainingQ/',names,'/im0.png'));
 I0=rgb2gray(I);
 %% right view
 names=filenames(im).name;
-I=imread(strcat('../Middlebury 2014//MiddEval3/trainingQ/',names,'/im1.png'));
+I=imread(strcat('../MiddEval3/trainingQ/',names,'/im1.png'));
 I1=rgb2gray(I);
 %% image to columns
 Data00=im2col(I0,[b,b],'sliding');
@@ -25,8 +25,8 @@ Data0=Data00;
 Data1=Data10;
 %% disp
 names=filenames(im).name;
-Disp=round(double(readpfm(strcat('../Middlebury 2014/MiddEval3GT/trainingQ/',names,'/disp0GT.pfm'))));
-mask0nocc=double(imread(strcat('../Middlebury 2014//MiddEval3GT/trainingQ/',names,'/mask0nocc.png')))==255;
+Disp=round(double(readpfm(strcat('../MiddEval3GT/trainingQ/',names,'/disp0GT.pfm'))));
+mask0nocc=double(imread(strcat('../MiddEval3GT/trainingQ/',names,'/mask0nocc.png')))==255;
 Mask=im2col(~mask0nocc,[b,b],'sliding');
 ind_remove=find(sum(Mask)~=0); % remove occluded regions
 %% matching pairs

@@ -2,40 +2,40 @@ function ErrorRate=mainfunction_2006(year,testimage)
 tic
 %----- Load input images and Groundtruth, and set disparity ranges and the scale of disparity map to write------%
 if year==2001
-I1=imread(['.\img_stereo\',testimage,'\im2.ppm']);
-I2=imread(['.\img_stereo\',testimage,'\im6.ppm']);    
+I1=imread(['..\MiddEval2\',testimage,'\im2.ppm']);
+I2=imread(['..\MiddEval2\',testimage,'\im6.ppm']);    
 scale=8;
-GT1=imread(['.\img_stereo\',testimage,'\disp2.pgm']);
-GT2=imread(['.\img_stereo\',testimage,'\disp6.pgm']);
+GT1=imread(['..\MiddEval2\',testimage,'\disp2.pgm']);
+GT2=imread(['..\MiddEval2\',testimage,'\disp6.pgm']);
 [GT,mask,numDisp]=nonoccmask(GT1,GT2,scale);
 elseif year==20011
-I1=imread(['.\img_stereo\',testimage,'\imL.png']);
-I2=imread(['.\img_stereo\',testimage,'\imR.png']);
+I1=imread(['..\MiddEval2\',testimage,'\imL.png']);
+I2=imread(['..\MiddEval2\',testimage,'\imR.png']);
 scale=16;
-GT=fix(double(imread(['.\img_stereo\',testimage,'\truedisp.pgm']))./scale);
-mask=double(imread(['.\img_stereo\',testimage,'\nonocc.png']))==1;
+GT=fix(double(imread(['..\MiddEval2\',testimage,'\truedisp.pgm']))./scale);
+mask=double(imread(['..\MiddEval2\',testimage,'\nonocc.png']))==1;
 numDisp=max(GT(:));
 numDisp=unique(numDisp);
 elseif year==2003
-I1=imread(['.\img_stereo\',testimage,'\imL.png']);
-I2=imread(['.\img_stereo\',testimage,'\imR.png']);
+I1=imread(['..\MiddEval2\',testimage,'\imL.png']);
+I2=imread(['..\MiddEval2\',testimage,'\imR.png']);
 scale=4;
-GT1=imread(['.\img_stereo\',testimage,'\disp2.png']);
-GT2=imread(['.\img_stereo\',testimage,'\disp6.png']);
+GT1=imread(['..\MiddEval2\',testimage,'\disp2.png']);
+GT2=imread(['..\MiddEval2\',testimage,'\disp6.png']);
 [GT,mask,numDisp]=nonoccmask(GT1,GT2,scale);
 elseif year==2005||year==2006
-I1=imread(['.\img_stereo\',testimage,'\view1.png']);
-I2=imread(['.\img_stereo\',testimage,'\view5.png']);
+I1=imread(['..\MiddEval2\',testimage,'\view1.png']);
+I2=imread(['..\MiddEval2\',testimage,'\view5.png']);
 scale=3;
-GT1=imread(['.\img_stereo\',testimage,'\disp1.png']);
-GT2=imread(['.\img_stereo\',testimage,'\disp5.png']);
+GT1=imread(['..\MiddEval2\',testimage,'\disp1.png']);
+GT2=imread(['..\MiddEval2\',testimage,'\disp5.png']);
 [GT,mask,numDisp]=nonoccmask(GT1,GT2,scale);
 else
-I1=imread(['.\img_stereo\',testimage,'\view1.png']);
-I2=imread(['.\img_stereo\',testimage,'\view5.png']);
+I1=imread(['..\MiddEval2\',testimage,'\view1.png']);
+I2=imread(['..\MiddEval2\',testimage,'\view5.png']);
 scale=3;
-GT1=imread(['.\img_stereo\',testimage,'\disp1.png']);
-GT2=imread(['.\img_stereo\',testimage,'\disp5.png']);
+GT1=imread(['..\MiddEval2\',testimage,'\disp1.png']);
+GT2=imread(['..\MiddEval2\',testimage,'\disp5.png']);
 [GT,mask,numDisp]=nonoccmask(GT1,GT2,scale);
 end
 
