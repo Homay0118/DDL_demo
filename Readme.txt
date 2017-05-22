@@ -10,11 +10,11 @@ Important notes:
 
 (2) If you use our codes we request that you cite the paper [J. Yin, H. Zhu, D. Yuan, T. Xue, Sparse Representation over Discriminative Dictionary for Stereo Matching, PR]
 
-(3) Platform: Matlab 2010+ with C Compiler
+(3) Platform: Windows/Matlab 2010+ with C Compiler
 
 Usage:
 
-* Download stereo pairs from http://vision.middlebury.edu/stereo/data/ for training and test. Remember to change the data paths if necessary.
+* Download stereo pairs from http://vision.middlebury.edu/stereo/data/ into "MiddEval2", "MiddEval3", and "MiddEval3GT", respectively.
 
 * Dictionary Learning is in the folder "training"
  - folders "all15","first8","last7" are used to save the corresponding training samples and learned dictionaries.
