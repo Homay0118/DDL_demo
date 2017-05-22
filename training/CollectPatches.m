@@ -51,7 +51,7 @@ Var_left=sum((double(Data0)-Mean_left).^2);
 K0=size(Data0,2)/2;
 Data0=Data0(:,ind1(1:K0));
 Data1=Data1(:,ind1(1:K0));
-%% randomly select 5000 patch pairs
+%% randomly select 20000 patch pairs
 sampling=randperm(length(Data0),min(length(Data0),20000));
 Left=[Left,Data0(:,sampling)];
 Right=[Right,Data1(:,sampling)];
