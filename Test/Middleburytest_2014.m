@@ -1,15 +1,15 @@
 clear variables;
 warning('off','all')
 close all;
-UseParallelToolbox = true; % Set true if you want to take advantage of the Matlab parallel computing toolbox
-ParallelWorkers = 4; % How many workers should be used by the parallel computing toolbox (should be equal or less the number of available CPU cores)
-
-% Set up parallel computing toolbox
-if (UseParallelToolbox)
- if isempty(gcp('nocreate'))
- parpool(ParallelWorkers);
- end
-end
+% UseParallelToolbox = true; % Set true if you want to take advantage of the Matlab parallel computing toolbox
+% ParallelWorkers = 4; % How many workers should be used by the parallel computing toolbox (should be equal or less the number of available CPU cores)
+% 
+% % Set up parallel computing toolbox
+% if (UseParallelToolbox)
+%  if isempty(gcp('nocreate'))
+%  parpool(ParallelWorkers);
+%  end
+% end
 
 % Are you going to use the training or test set?
 %   imgset = 'training';
