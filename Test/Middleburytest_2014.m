@@ -86,8 +86,7 @@ P1=1.2;
 sigma=0.4;
 ErrorRate = zeros(1,15);
 %--------------------------------- Executing ------------------------------%
-% for im_num = test_start: test_end   % if all the datasets are downloaded.
-for im_num =2:2
+for im_num = test_start: test_end   % if all the datasets are downloaded.
     %----------- Adjust the range of disparities to the chosen resolution -------------------------------%
     if imgsize == 'Q'
         DisparityRange = [1,round(ndisp(im_num)/4)];
