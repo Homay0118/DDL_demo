@@ -2,6 +2,7 @@
 clc
 clear
 close all
+warning('off','all')
 b=5;
 filenames=dir('../MiddEval3GT/trainingQ/');
 filenames(1:2)=[];
