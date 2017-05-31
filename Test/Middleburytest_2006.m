@@ -14,7 +14,7 @@ close all
 imgNum=0;
 Datasets={2001,20011,2003,2005,2006};
 mkdir('MiddEval2results');
-for Y=5:5   %1:5 if all the datasets are downloaded.
+for Y=1:5   %1:5 if all the datasets are downloaded.
     setNum=Datasets{Y};
     if setNum==2001
         datasets={'barn1','barn2','bull','poster','sawtooth','Venus'};
@@ -31,8 +31,7 @@ for Y=5:5   %1:5 if all the datasets are downloaded.
     elseif setNum==2006
     datasets={'Bowling1','Aloe','Baby1','Baby2','Baby3','Bowling2','Cloth1','Cloth2','Cloth3','Cloth4', 'Flowerpots','Lampshade1',...
               'Lampshade2','Rocks1','Rocks2'};
-%     maxNum=15; %If all the datasets are downloaded.
-     maxNum =1;
+    maxNum=15; %If all the datasets are downloaded.
     end
     for testimage =1: maxNum
         data=datasets{testimage};
