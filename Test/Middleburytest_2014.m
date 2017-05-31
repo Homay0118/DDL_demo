@@ -1,19 +1,19 @@
 clear variables;
 warning('off','all')
 close all;
-% UseParallelToolbox = true; % Set true if you want to take advantage of the Matlab parallel computing toolbox
-% ParallelWorkers = 4; % How many workers should be used by the parallel computing toolbox (should be equal or less the number of available CPU cores)
-% 
-% % Set up parallel computing toolbox
-% if (UseParallelToolbox)
-%  if isempty(gcp('nocreate'))
-%  parpool(ParallelWorkers);
-%  end
-% end
+UseParallelToolbox = true; % Set true if you want to take advantage of the Matlab parallel computing toolbox
+ParallelWorkers = 4; % How many workers should be used by the parallel computing toolbox (should be equal or less the number of available CPU cores)
+
+% Set up parallel computing toolbox
+if (UseParallelToolbox)
+ if isempty(gcp('nocreate'))
+ parpool(ParallelWorkers);
+ end
+end
 
 % Are you going to use the training or test set?
-%   imgset = 'training';
-imgset = 'test';
+imgset = 'training';
+% imgset = 'test';
 
 % Specify which resolution you are using for the stereo image set (F, H, or Q?)
   imgsize = 'Q';
@@ -60,12 +60,12 @@ else
 end
 %------------------------------ load dictionary ---------------------------%
 if strcmp(imgset,'training')
-%   load ..\training\last7\D_Middlebury_2014_5.mat
-%   test_start = 1;
-%   test_end = 8;
-  load ..\training\first8\D_Middlebury_2014_5.mat
-  test_start = 9;
-  test_end = 15;
+  load ..\training\last7\D_Middlebury_2014_5.mat
+  test_start = 1;
+  test_end = 8;
+%   load ..\training\first8\D_Middlebury_2014_5.mat
+%   test_start = 9;
+%   test_end = 15;
 else
   load ..\training\all15\D_Middlebury_2014_5.mat
   test_start = 1;
